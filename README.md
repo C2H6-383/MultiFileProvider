@@ -1,10 +1,10 @@
 # MultiFileProvider
-##### A small PHP class for combining multiple CSS/JS files into one File.
+##### A small PHP class for dynamically combining multiple CSS/JS files into one File.
 
 ## Requirements
 - PHP 5.4 or newer
 
-## Allowed Files
+## Allowed File types
 - css stylesheets, mime type: *text/css*
 - js scripts, mime type: *application/javascript*
 
