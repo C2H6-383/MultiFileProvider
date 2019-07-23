@@ -15,8 +15,8 @@
 4. require it in php
 7. You are ready to read the *basics* chapter of this readme.
 
-##Basics
-####1. CSS files *without url()*
+## Basics
+#### 1. CSS files *without url()*
 **a) your php file (e.g. allcss.php):**
 
 ```php
@@ -49,7 +49,7 @@ $your_object_name->createMultiFile();
 ```
 now you have file_1.css, file_2.css and file_3.css in the page (if you have more files, use more keywords, but you have to add these files in the php page with addFile/addFiles)
 
-####2. CSS files *with url()*
+#### 2. CSS files *with url()*
 If you have relative paths in one of your css files, like so: url(../../file.extension), you have to replace the relative path with the full web adress or, you can write a key word, like THE_WEBADRESS_OF_MY_PAGE to let the MultiFileProvider class do the work.
 **a) your php file (e.g. allcss.php):**
 
@@ -85,7 +85,7 @@ $your_object_name->createMultiFile();
 ```
 now you have file_1.css, file_2.css and file_3.css in the page and all THE_WEBADRESS_OF_MY_PAGE phrases are replaced by "http://my-website.com/topLevel/"
 
-####3. JS files 
+#### 3. JS files 
 **a) your php file (e.g. alljs.php):**
 
 ```php
@@ -118,7 +118,7 @@ $your_object_name->createMultiFile();
 ```
 now you have script_1.js and script_2.js included in your HTML head and script_3.js included after your page in the HTML body.
 
-####4. CSS & JS files - only example 1,2 and 3 together :)
+#### 4. CSS & JS files - only example 1,2 and 3 together :)
 **a) the PHP file for the CSS files (e.g. allcss.php):**
 ```php
 //create the object 
