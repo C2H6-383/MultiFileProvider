@@ -25,13 +25,13 @@ namespace {
          *
          * @var string Replace Word for the Website root path 
          */
-        private $rootWord;
+        private $rootWord="DEFAULT_ROOTWORD_afoiudihgfsoidfgklsgfddfg6864646465";
 
         /**
          *
          * @var string the top adress for this Site (for autoreplace of CSS/JS include paths)
          */
-        private $SiteTopAdress;
+        private $SiteTopAddress;
 
         /**
          *
@@ -63,16 +63,16 @@ namespace {
         /**
          * Creates the structure for a MultiFileProvider
          * @param string $mimeType the mime Type used later for headers
-         * @param string $SiteTopAdress the top adress for this Site (for autoreplace of CSS/JS include paths)
+         * @param string $SiteTopAddress the top adress for this Site (for autoreplace of CSS/JS include paths)
          * @throws Exception If the $mimeType is not in $allowedMimeTypes
          */
-        public function __construct($mimeType, $SiteTopAdress) {
+        public function __construct($mimeType, $SiteTopAddress="http://google.com") {
             if (!in_array($mimeType, MultiFileProvider::$allowedMimeTypes)) {
                 throw new Exception("given MimeType not allowed.");
             }
 
 
-            $this->SiteTopAdress = $SiteTopAdress;
+            $this->SiteTopAddress = $SiteTopAddress;
             $this->mimeType = $mimeType;
         }
 
@@ -200,8 +200,8 @@ namespace {
          */
         private function outputFile($File) {
             $file_Content = file_get_contents($File->get_FileName());
-            $file_Content = str_replace($this->rootWord, $this->SiteTopAdress, $file_Content);
-            $file_Content = str_replace("../", $this->SiteTopAdress, $file_Content);
+            $file_Content = str_replace($this->rootWord, $this->SiteTopAddress, $file_Content);
+            //$file_Content = str_replace("../", $this->SiteTopAddress, $file_Content);
             echo "\n";
             echo "/*\n#################################################\n";
             echo "File name: " . $File->get_FileName() . "  \n";
