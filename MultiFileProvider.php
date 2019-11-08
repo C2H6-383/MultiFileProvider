@@ -4,16 +4,16 @@ namespace {
 
     /**
      * A small PHP class for combining multiple CSS/JS files into one File dynamically over the url, with modification and 304 headers.
-     * @author Ethan Ziermann <null@unconfigured.com>
+     * @author Ethan Finley <github@ethan-finley.de>
      * @name MultiFileProvider
-     * @version 1.0
+     * @version 1.1
      */
     class MultiFileProvider {
 
         /**
          * @var string Contains the Class Version
          */
-        public $version = "1.0";
+        public $version = "1.1";
 
         /**
          *
@@ -23,7 +23,7 @@ namespace {
 
         /**
          *
-         * @var string Replace Word for the Website root path 
+         * @var string Replace Word for the Website root path
          */
         private $rootWord="DEFAULT_ROOTWORD_afoiudihgfsoidfgklsgfddfg6864646465";
 
@@ -50,13 +50,13 @@ namespace {
 
         /**
          *
-         * @var \MultiFileProvider\FileContainer[] the Files wich get requested by the browser 
+         * @var \MultiFileProvider\FileContainer[] the Files wich get requested by the browser
          */
         private $requestedFiles = [];
 
         /**
          *
-         * @var bool if the headers are sent 
+         * @var bool if the headers are sent
          */
         private $HeadersSent = false;
 
@@ -66,7 +66,7 @@ namespace {
          * @param string $SiteTopAddress the top adress for this Site (for autoreplace of CSS/JS include paths)
          * @throws Exception If the $mimeType is not in $allowedMimeTypes
          */
-        public function __construct($mimeType, $SiteTopAddress="http://google.com") {
+        public function __construct($mimeType, $SiteTopAddress="http://stackoverflow.com") {
             if (!in_array($mimeType, MultiFileProvider::$allowedMimeTypes)) {
                 throw new Exception("given MimeType not allowed.");
             }
@@ -184,14 +184,14 @@ namespace {
          * @param int $FileCount the Count of the files, later sent
          */
         private function outputFileTextHeader($FileCount) {
-            echo "/*\n\n Dynamic File, Provided by MultiFileProvider $this->version \n File type: $this->mimeType \n File count: $FileCount \n\n #################################################\n\n*/\n\n";
+            echo "\n/*\n\n Dynamic File, Provided by MultiFileProvider $this->version \n File type: $this->mimeType \n File count: $FileCount \n\n #################################################\n\n*/\n\n";
         }
 
         /**
          * Outputs the visible Text footer for the file
          */
         private function outputFileTextFooter() {
-            echo "/*\n\n #################################################\n\n Dynamic File ended. \n MultiFileProvider -> (C) Ethan Ziermann, Germany \n https://github.com/C2H6-383/MultiFileProvider\n\n*/\n\n ";
+            echo "\n/*\n\n #################################################\n\n Dynamic File ended. \n MultiFileProvider -> (C) Ethan Ziermann, Germany \n https://github.com/C2H6-383/MultiFileProvider\n\n*/\n\n ";
         }
 
         /**
@@ -265,26 +265,26 @@ namespace MultiFileProvider {
 
         /**
          *
-         * @var string URL Keyword for this File to get Included 
+         * @var string URL Keyword for this File to get Included
          */
         private $keyWord;
 
         /**
          *
-         * @var string file name for the file 
+         * @var string file name for the file
          */
         private $FileName;
 
         /**
          *
-         * @var int last modified timestamp 
+         * @var int last modified timestamp
          */
         private $LastModified;
 
         /**
          * Creates a File Container for the MultiFileProviderClass
-         * @param string $keyWord URL Keyword for this File to get Included 
-         * @param string $FileName file name for the file 
+         * @param string $keyWord URL Keyword for this File to get Included
+         * @param string $FileName file name for the file
          */
         public function __construct($keyWord, $FileName) {
             $this->keyWord = $keyWord;
